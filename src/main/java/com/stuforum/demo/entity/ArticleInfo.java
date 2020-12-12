@@ -11,19 +11,6 @@ public class ArticleInfo {
 
     private Date create_by;
 
-    @Override
-    public String toString() {
-        return "ArticleInfo{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", is_top=" + is_top +
-                ", create_by=" + create_by +
-                ", user_id=" + user_id +
-                ", tranffic=" + tranffic +
-                ", likes=" + likes +
-                '}';
-    }
-
     private Long user_id;
 
     private Integer tranffic;
