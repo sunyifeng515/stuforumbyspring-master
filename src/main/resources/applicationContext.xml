@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx.xsd
+                           http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- Spring 和 SpringMVC的配置文件 -->
+    <!-- 这是Spring配置部分 -->
+    <!--  开启扫描组件  -->
+    <context:component-scan base-package="com.stuforum.demo.*"/>
+
+    <!--  设置德鲁伊连接池配置  -->
+    <bean id="druid" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="url" value="jdbc:mysql://localhost:3306/stu?serverTimezone=UTC&amp;characterEncoding=utf-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="sun199915"/>
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+
+        <property name="initialSize" value="5"/>
+        <property name="minIdle" value="5"/>
+        <property name="maxActive" value="20"/>
+        <property name="maxWait" value="60000"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <property name="validationQuery" value="SELECT 1 FROM DUAL"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>
+        <property name="filters" value="stat,wall"/>
+        <property name="connectionProperties" value="druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000"/>
+        <property name="validConnectionCheckerClassName" value="com.alibaba.druid.pool.vendor.MSSQLValidConnectionChecker"/>
+    </bean>
+
+    <!--  注入jdbcTemplate，用于与数据库的交互  -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="druid"/>
+    </bean>
+
+    <!--  注入jdbc事务管理  -->
+    <bean id="jdbcTransaction" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="druid"/>
+    </bean>
+
+
+    <!-- mapper注入底层必要组件 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!--        <property name="configLocation" value="classpath:mybatis-configuration.xml"/>-->
+        <property name="dataSource" ref="druid"/>
+        <property name="mapperLocations" value="classpath*:com/stuforum/demo/dao/*.xml"/>
+    </bean>
+
+    <!-- 将mapper自动扫描注入bean -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+                <!-- 基本包 -->
+        <property name="basePackage" value="com.stuforum.demo.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+
+    <!-- 启用对事务注解的支持 -->
+    <tx:annotation-driven transaction-manager="jdbcTransaction"/>
+
+    <!-- 启用注解  -->
+    <context:annotation-config/>
+
+</beans>
