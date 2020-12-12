@@ -3,6 +3,7 @@ package com.stuforum.demo.dao;
 import com.stuforum.demo.entity.PictureInfo;
 import com.stuforum.demo.entity.PictureInfoExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface PictureInfoMapper {
     long countByExample(PictureInfoExample example);
@@ -18,6 +19,10 @@ public interface PictureInfoMapper {
     List<PictureInfo> selectByExample(PictureInfoExample example);
 
     PictureInfo selectByPrimaryKey(Long id);
+
+    int updateByExampleSelective(@Param("record") PictureInfo record, @Param("example") PictureInfoExample example);
+
+    int updateByExample(@Param("record") PictureInfo record, @Param("example") PictureInfoExample example);
 
     int updateByPrimaryKeySelective(PictureInfo record);
 

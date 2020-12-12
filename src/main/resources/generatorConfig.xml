@@ -39,8 +39,7 @@
         </javaClientGenerator>
 
         <!--生成对应表及类名-->
-        <table tableName="sys_log" domainObjectName="SysLog" enableCountByExample="true"
-               enableUpdateByExample="false" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="sys_log" domainObjectName="SysLog"
                selectByExampleQueryId="false">
             <!--使用自增长键-->
             <property name="my.isgen.usekeys" value="true"/>
@@ -49,80 +48,70 @@
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
-        <table tableName="sys_view" domainObjectName="SysView" enableCountByExample="true"
-               enableUpdateByExample="false" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="sys_view" domainObjectName="SysView"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
-        <table tableName="tbl_article_category" domainObjectName="ArticleCategory" enableCountByExample="true"
-               enableUpdateByExample="false" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="tbl_article_category" domainObjectName="ArticleCategory"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
-        <table tableName="tbl_article_comment" domainObjectName="ArticleComment" enableCountByExample="true"
-               enableUpdateByExample="false" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="tbl_article_comment" domainObjectName="ArticleComment"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
-        <table tableName="tbl_article_content" domainObjectName="ArticleContent" enableCountByExample="true"
-               enableUpdateByExample="false" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="tbl_article_content" domainObjectName="ArticleContent"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
-        <table tableName="tbl_article_info" domainObjectName="ArticleInfo" enableCountByExample="true"
-               enableUpdateByExample="false" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="tbl_article_info" domainObjectName="ArticleInfo"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
-        <table tableName="tbl_category_info" domainObjectName="CategoryInfo" enableCountByExample="true"
-               enableUpdateByExample="false" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="tbl_category_info" domainObjectName="CategoryInfo"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
-        <table tableName="tbl_article_picture" domainObjectName="ArticlePicture" enableCountByExample="true"
-               enableUpdateByExample="false" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="tbl_article_picture" domainObjectName="ArticlePicture"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
-        <table tableName="tbl_comment_info" domainObjectName="CommentInfo" enableCountByExample="true"
-               enableUpdateByExample="false" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="tbl_comment_info" domainObjectName="CommentInfo"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
-        <table tableName="tbl_picture_info" domainObjectName="PictureInfo" enableCountByExample="true"
-               enableUpdateByExample="false" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="tbl_picture_info" domainObjectName="PictureInfo"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
 
-        <table tableName="tbl_user" domainObjectName="User" enableCountByExample="true"
-               enableUpdateByExample="false" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="tbl_user" domainObjectName="User"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>

@@ -3,6 +3,7 @@ package com.stuforum.demo.dao;
 import com.stuforum.demo.entity.ArticleCategory;
 import com.stuforum.demo.entity.ArticleCategoryExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface ArticleCategoryMapper {
     long countByExample(ArticleCategoryExample example);
@@ -18,6 +19,10 @@ public interface ArticleCategoryMapper {
     List<ArticleCategory> selectByExample(ArticleCategoryExample example);
 
     ArticleCategory selectByPrimaryKey(Long id);
+
+    int updateByExampleSelective(@Param("record") ArticleCategory record, @Param("example") ArticleCategoryExample example);
+
+    int updateByExample(@Param("record") ArticleCategory record, @Param("example") ArticleCategoryExample example);
 
     int updateByPrimaryKeySelective(ArticleCategory record);
 
