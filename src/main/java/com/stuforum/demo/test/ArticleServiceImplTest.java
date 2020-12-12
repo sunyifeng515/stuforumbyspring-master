@@ -37,9 +37,11 @@ public class ArticleServiceImplTest {
         articleDto.setLikes(0);
         articleDto.setTranffic(0);
         articleDto.setPicture_id(10L);
-        articleDto.setId(7);
+        articleDto.setId(9);
         articleDto.setContent("good Evening！！");
         articleDto.setCategory_id(2L);
+        articleDto.setIs_effective(false);
+        articleDto.setMessage_id(6l);
         articleService.addArticle(articleDto);
     }
     @Test
@@ -52,6 +54,6 @@ public class ArticleServiceImplTest {
     }
     @Test
     public void deleteById(){
-        System.out.println(articleService.deleteById(1L));
+        System.out.println(articleService.deleteById(9));
     }
 }

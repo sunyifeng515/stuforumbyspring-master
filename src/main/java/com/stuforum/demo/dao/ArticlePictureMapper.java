@@ -5,6 +5,10 @@ import com.stuforum.demo.entity.ArticlePictureExample;
 import java.util.List;
 
 public interface ArticlePictureMapper {
+    long countByExample(ArticlePictureExample example);
+
+    int deleteByExample(ArticlePictureExample example);
+
     int deleteByPrimaryKey(Long id);
 
     int insert(ArticlePicture record);

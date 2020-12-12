@@ -63,6 +63,12 @@
     delete from tbl_article_category
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteByExample" parameterType="com.stuforum.demo.entity.ArticleCategoryExample">
+    delete from tbl_article_category
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stuforum.demo.entity.ArticleCategory" useGeneratedKeys="true">
     insert into tbl_article_category (category_id, article_id)
     values (#{category_id,jdbcType=BIGINT}, #{article_id,jdbcType=BIGINT})
@@ -86,6 +92,12 @@
       </if>
     </trim>
   </insert>
+  <select id="countByExample" parameterType="com.stuforum.demo.entity.ArticleCategoryExample" resultType="java.lang.Long">
+    select count(*) from tbl_article_category
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
   <update id="updateByPrimaryKeySelective" parameterType="com.stuforum.demo.entity.ArticleCategory">
     update tbl_article_category
     <set>

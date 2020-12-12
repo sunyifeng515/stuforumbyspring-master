@@ -63,6 +63,12 @@
     delete from tbl_picture_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteByExample" parameterType="com.stuforum.demo.entity.PictureInfoExample">
+    delete from tbl_picture_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stuforum.demo.entity.PictureInfo" useGeneratedKeys="true">
     insert into tbl_picture_info (article_id, url)
     values (#{article_id,jdbcType=BIGINT}, #{url,jdbcType=VARCHAR})
@@ -86,6 +92,12 @@
       </if>
     </trim>
   </insert>
+  <select id="countByExample" parameterType="com.stuforum.demo.entity.PictureInfoExample" resultType="java.lang.Long">
+    select count(*) from tbl_picture_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
   <update id="updateByPrimaryKeySelective" parameterType="com.stuforum.demo.entity.PictureInfo">
     update tbl_picture_info
     <set>

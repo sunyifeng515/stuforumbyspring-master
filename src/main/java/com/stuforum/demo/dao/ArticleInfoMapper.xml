@@ -67,6 +67,12 @@
     delete from tbl_article_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteByExample" parameterType="com.stuforum.demo.entity.ArticleInfoExample">
+    delete from tbl_article_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stuforum.demo.entity.ArticleInfo" useGeneratedKeys="true">
     insert into tbl_article_info (title, is_top, create_by, 
       user_id, tranffic, likes
@@ -118,6 +124,12 @@
       </if>
     </trim>
   </insert>
+  <select id="countByExample" parameterType="com.stuforum.demo.entity.ArticleInfoExample" resultType="java.lang.Long">
+    select count(*) from tbl_article_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
   <update id="updateByPrimaryKeySelective" parameterType="com.stuforum.demo.entity.ArticleInfo">
     update tbl_article_info
     <set>

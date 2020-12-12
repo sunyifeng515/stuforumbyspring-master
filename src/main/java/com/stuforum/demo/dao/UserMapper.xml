@@ -64,6 +64,12 @@
     delete from tbl_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteByExample" parameterType="com.stuforum.demo.entity.UserExample">
+    delete from tbl_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stuforum.demo.entity.User" useGeneratedKeys="true">
     insert into tbl_user (name, password, picture_url
       )
@@ -95,6 +101,12 @@
       </if>
     </trim>
   </insert>
+  <select id="countByExample" parameterType="com.stuforum.demo.entity.UserExample" resultType="java.lang.Long">
+    select count(*) from tbl_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
   <update id="updateByPrimaryKeySelective" parameterType="com.stuforum.demo.entity.User">
     update tbl_user
     <set>

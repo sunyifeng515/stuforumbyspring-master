@@ -5,6 +5,10 @@ import com.stuforum.demo.entity.SysLogExample;
 import java.util.List;
 
 public interface SysLogMapper {
+    long countByExample(SysLogExample example);
+
+    int deleteByExample(SysLogExample example);
+
     int deleteByPrimaryKey(Long id);
 
     int insert(SysLog record);

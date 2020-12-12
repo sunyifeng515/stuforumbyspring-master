@@ -63,6 +63,12 @@
     delete from sys_view
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteByExample" parameterType="com.stuforum.demo.entity.SysViewExample">
+    delete from sys_view
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stuforum.demo.entity.SysView" useGeneratedKeys="true">
     insert into sys_view (ip, create_by)
     values (#{ip,jdbcType=VARCHAR}, #{create_by,jdbcType=TIMESTAMP})
@@ -86,6 +92,12 @@
       </if>
     </trim>
   </insert>
+  <select id="countByExample" parameterType="com.stuforum.demo.entity.SysViewExample" resultType="java.lang.Long">
+    select count(*) from sys_view
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
   <update id="updateByPrimaryKeySelective" parameterType="com.stuforum.demo.entity.SysView">
     update sys_view
     <set>

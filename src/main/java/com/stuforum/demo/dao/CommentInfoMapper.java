@@ -5,6 +5,10 @@ import com.stuforum.demo.entity.CommentInfoExample;
 import java.util.List;
 
 public interface CommentInfoMapper {
+    long countByExample(CommentInfoExample example);
+
+    int deleteByExample(CommentInfoExample example);
+
     int deleteByPrimaryKey(Long id);
 
     int insert(CommentInfo record);

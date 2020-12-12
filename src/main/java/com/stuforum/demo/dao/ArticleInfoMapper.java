@@ -5,6 +5,10 @@ import com.stuforum.demo.entity.ArticleInfoExample;
 import java.util.List;
 
 public interface ArticleInfoMapper {
+    long countByExample(ArticleInfoExample example);
+
+    int deleteByExample(ArticleInfoExample example);
+
     int deleteByPrimaryKey(Long id);
 
     int insert(ArticleInfo record);

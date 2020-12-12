@@ -55,11 +55,17 @@ public class ArticleDto {
                 ", sort_id=" + sort_id +
                 ", titile='" + titile + '\'' +
                 ", is_top=" + is_top +
+                ", article_id=" + article_id +
+                ", picture_id=" + picture_id +
+                ", content='" + content + '\'' +
+                ", category_id=" + category_id +
                 ", create_by=" + create_by +
                 ", modified_by=" + modified_by +
                 ", Likes=" + Likes +
                 ", Tranffic=" + Tranffic +
                 ", user_id=" + user_id +
+                ", message_id=" + message_id +
+                ", is_effective=" + is_effective +
                 '}';
     }
 
@@ -68,6 +74,24 @@ public class ArticleDto {
     private Integer Likes;
     private Integer Tranffic;
     private Long user_id;
+    private Long message_id;
+    private Boolean is_effective;
+
+    public Long getMessage_id() {
+        return message_id;
+    }
+
+    public void setMessage_id(Long message_id) {
+        this.message_id = message_id;
+    }
+
+    public Boolean getIs_effective() {
+        return is_effective;
+    }
+
+    public void setIs_effective(Boolean is_effective) {
+        this.is_effective = is_effective;
+    }
 
     public Long getUser_id() {
         return user_id;

@@ -20,6 +20,7 @@ public interface ArticleService {
      * @return
      */
     public boolean addArticle(ArticleDto articleDto);
-    public List<ArticleInfo> queryAll();
+    public List<ArticleDto> queryAll();
     public boolean deleteById(long id);
+
 }

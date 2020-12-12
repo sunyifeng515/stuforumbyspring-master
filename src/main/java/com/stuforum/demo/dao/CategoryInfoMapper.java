@@ -5,6 +5,10 @@ import com.stuforum.demo.entity.CategoryInfoExample;
 import java.util.List;
 
 public interface CategoryInfoMapper {
+    long countByExample(CategoryInfoExample example);
+
+    int deleteByExample(CategoryInfoExample example);
+
     int deleteByPrimaryKey(Long id);
 
     int insert(CategoryInfo record);

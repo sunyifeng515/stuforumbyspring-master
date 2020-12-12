@@ -64,6 +64,12 @@
     delete from tbl_category_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteByExample" parameterType="com.stuforum.demo.entity.CategoryInfoExample">
+    delete from tbl_category_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stuforum.demo.entity.CategoryInfo" useGeneratedKeys="true">
     insert into tbl_category_info (name, number, create_by
       )
@@ -95,6 +101,12 @@
       </if>
     </trim>
   </insert>
+  <select id="countByExample" parameterType="com.stuforum.demo.entity.CategoryInfoExample" resultType="java.lang.Long">
+    select count(*) from tbl_category_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
   <update id="updateByPrimaryKeySelective" parameterType="com.stuforum.demo.entity.CategoryInfo">
     update tbl_category_info
     <set>

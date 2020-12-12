@@ -65,6 +65,12 @@
     delete from tbl_article_comment
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteByExample" parameterType="com.stuforum.demo.entity.ArticleCommentExample">
+    delete from tbl_article_comment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.stuforum.demo.entity.ArticleComment" useGeneratedKeys="true">
     insert into tbl_article_comment (article_id, message_id, create_by, 
       is_effective)
@@ -102,6 +108,12 @@
       </if>
     </trim>
   </insert>
+  <select id="countByExample" parameterType="com.stuforum.demo.entity.ArticleCommentExample" resultType="java.lang.Long">
+    select count(*) from tbl_article_comment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
   <update id="updateByPrimaryKeySelective" parameterType="com.stuforum.demo.entity.ArticleComment">
     update tbl_article_comment
     <set>

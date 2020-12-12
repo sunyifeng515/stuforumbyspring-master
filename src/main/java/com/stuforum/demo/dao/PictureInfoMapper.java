@@ -5,6 +5,10 @@ import com.stuforum.demo.entity.PictureInfoExample;
 import java.util.List;
 
 public interface PictureInfoMapper {
+    long countByExample(PictureInfoExample example);
+
+    int deleteByExample(PictureInfoExample example);
+
     int deleteByPrimaryKey(Long id);
 
     int insert(PictureInfo record);

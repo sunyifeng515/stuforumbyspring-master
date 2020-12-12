@@ -5,6 +5,10 @@ import com.stuforum.demo.entity.ArticleCategoryExample;
 import java.util.List;
 
 public interface ArticleCategoryMapper {
+    long countByExample(ArticleCategoryExample example);
+
+    int deleteByExample(ArticleCategoryExample example);
+
     int deleteByPrimaryKey(Long id);
 
     int insert(ArticleCategory record);

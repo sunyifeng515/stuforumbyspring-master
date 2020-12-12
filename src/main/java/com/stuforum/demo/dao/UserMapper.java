@@ -5,6 +5,10 @@ import com.stuforum.demo.entity.UserExample;
 import java.util.List;
 
 public interface UserMapper {
+    long countByExample(UserExample example);
+
+    int deleteByExample(UserExample example);
+
     int deleteByPrimaryKey(Long id);
 
     int insert(User record);
